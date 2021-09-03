@@ -1,5 +1,5 @@
-# Intermediate Python Course
+# Dice Roller Game
 
-Hey there, 
-
-In this course you will create a dice-rolling program using python. The code you create will be stored in the dice-roller.py file. This repo also contains course materials under the issues tab. 
+Staring point: [Intermediate-python course of GitHub Lab](https://lab.github.com/everydeveloper/intermediate-python)
+- Create a dice-rolling program using python.
+- This repo also contains the original course materials under the issues tab. 
