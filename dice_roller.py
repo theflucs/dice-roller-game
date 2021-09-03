@@ -1,5 +1,7 @@
 def main():
-  #print('You rolled a die')
+    print('You rolled a die')
 
-if __name__== "__main__":
-  main()
+
+# the function main will run whenever you run the Python script.
+if __name__ == "__main__":
+    main()
