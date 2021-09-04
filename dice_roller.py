@@ -78,7 +78,6 @@ def roll_the_dice(dice, player, team):
         else:
             print(f'You rolled a {roll}!')
 
-    print('                                         ')
     print(f'{player} have rolled a total of {dice_sum}')
     print('                                         ')
 
@@ -97,6 +96,7 @@ def play(dice, teams):
             player = players[j]
 
             print(f'{player} press any key and the Enter when you\'re ready to roll!')
+            print('Press only Enter to skip you turn!')
             key_pressed = input('')
 
             if key_pressed:
