@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+  app:
+    build: .
+    volumes:
+      - .:/home/node/app
+    command: tail -f /dev/null   # stopping container takes about 10 sec.
+    # tty: true                    # stopping container takes about 2 sec. - not working
