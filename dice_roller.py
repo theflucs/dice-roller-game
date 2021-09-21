@@ -1,4 +1,4 @@
-import random
+import random, operator
 
 
 def get_number_of_teams():
@@ -21,32 +21,30 @@ def get_number_of_team_members():
 
 def make_teams(n_teams, n_players):
     team_names = []
-    all_players = []
+    players = []
     teams = []
 
     for i in range(0, n_teams):
         team = input('Type team name: ')
         team_names.append(team)
         for j in range(0, n_players):
-            player = input(f'Type player name of the team {team}: ')
-            all_players.append(player)
+            player = {
+                "name": input(f'Type player name of the team {team}: '),
+                "team": team,
+                "score": 0
+            }
+
+            players.append(player)
+
         teams.append(
             {
                 "name": team_names[i],
-                "players": all_players
+                "players": players,
+                "score": 0
             }
         )
-        all_players = []
+        players = []
     return teams
-
-
-def init_play(teams):
-    rnd = random.randint(0, len(teams) - 1)
-    team_start = teams[rnd]
-
-    print('                                         ')
-    print(f'{team_start["name"].upper()} starts playing this time!')
-    print('                                         ')
 
 
 def init_dice():
@@ -62,6 +60,16 @@ def init_dice():
         print('Please type an integer number to continue')
         init_dice()
 
+
+def init_play(teams):
+    rnd = random.randint(0, len(teams) - 1)
+    team_start = teams[rnd]
+
+    print('                                         ')
+    print(f'{team_start["name"].upper()} starts playing this time!')
+    print('                                         ')
+
+
 def roll_the_dice(dice, player, team):
     rolls = dice['rolls']
     sides = dice['sides']
@@ -70,16 +78,27 @@ def roll_the_dice(dice, player, team):
     for i in range(0, rolls):
         roll = random.randint(1, rolls)
         dice_sum += roll
+        player["score"] = dice_sum
 
         if roll == 1:
-            print(f'You rolled a {roll}! Low score!')
+            print(f'{player["name"]}, you rolled a {roll}! Low score!')
         elif roll == sides:
-            print(f'You rolled a  {roll}! Super score!')
+            print(f'{player["name"]}, you rolled a  {roll}! Super score!')
         else:
-            print(f'You rolled a {roll}!')
+            print(f'{player["name"]}, you rolled a {roll}!')
 
-    print(f'{player} have rolled a total of {dice_sum}')
+    team["score"] += player["score"]
+
+    print(f'{player["name"]} have rolled a total of {dice_sum}')
     print('                                         ')
+
+
+def make_ranking(teams):
+    print('teams: ', teams)
+    teams_ranking = sorted(teams, key=lambda i: i['score'], reverse=True)
+
+    print('teams ranking: ', teams_ranking)
+    players_ranking = []
 
 
 def play(dice, teams):
@@ -90,18 +109,19 @@ def play(dice, teams):
     print('                                         ')
 
     for i in range(0, len(teams)):
-        team = teams[i]["name"]
+        team = teams[i]
         players = teams[i]["players"]
-        for j in range(0, len(players)):
+        players_length = len(players)
+        for j in range(0, players_length):
             player = players[j]
 
-            print(f'{player} press any key and the Enter when you\'re ready to roll!')
-            print('Press only Enter to skip you turn!')
+            print(f'{player["name"]} press any key and the Enter when you\'re ready to roll!')
+            print('Press only Enter to skip your turn!')
             key_pressed = input('')
 
             if key_pressed:
                 print('                                         ')
-                print(f'{player} is rolling the dice.....')
+                print(f'{player["name"]} is rolling the dice.....')
                 print('                                         ')
                 print('                                         ')
                 roll_the_dice(dice, player, team)
@@ -114,6 +134,7 @@ def main():
     init_play(teams)
     dice = init_dice()
     play(dice, teams)
+    make_ranking(teams)
 
 
 # the function main will run whenever you run the Python script.
