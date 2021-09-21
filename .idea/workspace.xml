@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e737d45-2b8b-4f4f-9908-2e92c91d96bc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dice_roller.py" beforeDir="false" afterPath="$PROJECT_DIR$/dice_roller.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +15,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1xdMPI46hGVd4rccy5eKT1dX3J0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -62,7 +70,8 @@
       <workItem from="1630680497198" duration="811000" />
       <workItem from="1630682755474" duration="442000" />
       <workItem from="1630685668856" duration="1759000" />
-      <workItem from="1630743579407" duration="751000" />
+      <workItem from="1630743579407" duration="1008000" />
+      <workItem from="1631517775251" duration="12541000" />
     </task>
     <servers />
   </component>
